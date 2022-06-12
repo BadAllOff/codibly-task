@@ -1,5 +1,4 @@
 import HeaderNav from "../components/HeaderNav";
-
 import ProductListContainer from "../containers/productList_container";
 
 export default function Products() {

@@ -1,7 +1,7 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { mainPage } from "./helpers/routes";
-import { MainLoader } from "./components/Loader";
+import { MainLoader } from "./components/Loaders";
 import { FilterIdProvider } from "./components/context/FilterIdProvider";
 import { PaginationProvider } from "./components/context/PaginationProvider";
 

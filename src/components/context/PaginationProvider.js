@@ -6,6 +6,7 @@ const UpdatePaginationContext = createContext();
 export const usePagination = () => {
     return useContext(PaginationContext);
 };
+
 export const useUpdatePagination = () => {
     return useContext(UpdatePaginationContext);
 };
