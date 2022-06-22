@@ -26,6 +26,7 @@ export default React.memo(function Link({ isDisabled, direction, children }) {
 
     return (
         <a
+            data-cy={direction}
             href={`?page=${pageNumber}`}
             onClick={(e) => {
                 e.preventDefault();

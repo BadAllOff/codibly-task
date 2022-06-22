@@ -7,7 +7,7 @@ export default React.memo(function Pagination() {
     return (
         <div className="flex flex-col items-center">
             {/* <!-- Help text --> */}
-            <span className="text-sm text-gray-700 dark:text-gray-400">
+            <span className=" text-sm text-gray-700 dark:text-gray-400">
                 Showing
                 <span className="font-semibold text-gray-900">
                     &nbsp;{page}&nbsp;
@@ -20,7 +20,7 @@ export default React.memo(function Pagination() {
             </span>
 
             {/* <!-- Buttons --> */}
-            <div className="flex w-full justify-between mt-2 xs:mt-0">
+            <div  className="pagination flex w-full justify-between mt-2 xs:mt-0">
                 <PaginationLinkContainer
                     direction={"Prev"}
                     isDisabled={page === 1}

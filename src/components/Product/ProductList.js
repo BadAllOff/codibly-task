@@ -24,7 +24,7 @@ function ProductList(props) {
                 </button>
             </div>
 
-            <table className="table-auto w-full text-left">
+            <table data-cy="products-table" className="table-auto w-full text-left">
                 <thead>
                     <tr className="border rounded">
                         <th className="p-3">id</th>
