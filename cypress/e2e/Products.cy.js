@@ -98,4 +98,77 @@ describe("Products", () => {
             .eq(2)
             .should("have.text", "2004");
     });
+
+    it("allows the user to filter results by id", () => {
+        cy.get('[data-cy="filter-id-input"]').type("3");
+        cy.get("[data-cy='products-table'] tbody tr").should("have.length", 1);
+        cy.get("[data-cy='products-table'] tbody tr td")
+            .first()
+            .should("have.text", "3");
+        cy.get("[data-cy='products-table'] tbody tr td")
+            .eq(1)
+            .should("have.text", "true red");
+        cy.get("[data-cy='products-table'] tbody tr td")
+            .eq(2)
+            .should("have.text", "2002");
+        cy.get("[data-cy='products-table'] tbody tr td")
+            .first()
+            .should("not.have.text", "1");
+        cy.get("[data-cy='products-table'] tbody tr td")
+            .eq(1)
+            .should("not.have.text", "cerulean");
+        cy.get("[data-cy='products-table'] tbody tr td")
+            .eq(2)
+            .should("not.have.text", "2000");
+    });
+
+    it("allows the user to reset filter results by id", () => {
+        cy.get('[data-cy="filter-id-input"]').type("3");
+        cy.get("[data-cy='products-table'] tbody tr").should("have.length", 1);
+        cy.get("[data-cy='products-table'] tbody tr td")
+            .first()
+            .should("have.text", "3");
+        cy.get("[data-cy='products-table'] tbody tr td")
+            .eq(1)
+            .should("have.text", "true red");
+        cy.get("[data-cy='products-table'] tbody tr td")
+            .eq(2)
+            .should("have.text", "2002");
+        cy.get("[data-cy='products-table'] tbody tr td")
+            .first()
+            .should("not.have.text", "1");
+        cy.get("[data-cy='products-table'] tbody tr td")
+            .eq(1)
+            .should("not.have.text", "cerulean");
+        cy.get("[data-cy='products-table'] tbody tr td")
+            .eq(2)
+            .should("not.have.text", "2000");
+
+        cy.get('[data-cy="reset-filter"]').click();
+        cy.get("[data-cy='products-table'] tbody tr").should("have.length", 5);
+        cy.get("[data-cy='products-table'] tbody tr td")
+            .first()
+            .should("have.text", "1");
+        cy.get("[data-cy='products-table'] tbody tr td")
+            .eq(1)
+            .should("have.text", "cerulean");
+        cy.get("[data-cy='products-table'] tbody tr td")
+            .eq(2)
+            .should("have.text", "2000");
+        cy.get("[data-cy='products-table'] tbody tr")
+            .last()
+            .find("td")
+            .eq(0)
+            .should("have.text", "5");
+        cy.get("[data-cy='products-table'] tbody tr")
+            .last()
+            .find("td")
+            .eq(1)
+            .should("have.text", "tigerlily");
+        cy.get("[data-cy='products-table'] tbody tr")
+            .last()
+            .find("td")
+            .eq(2)
+            .should("have.text", "2004");
+    });
 });
